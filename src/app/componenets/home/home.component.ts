@@ -24,7 +24,5 @@ export class HomeComponent implements OnInit {
 }
 
 class Testi {
-  titolo = ["Too Ez Fish", "Too Ez Fish"];
-  descrizione = ["Il Nuovo Portale Italiano dedicato alla Pesca Sportiva.","The new Italian Fishing Reference."];
-
+  titolo = ["Riboni Segatrici", "Riboni Segatrici"];
 }

@@ -19,7 +19,10 @@
 
 .outborder {
     clear: both;
-    background: orangered;
+    background: tomato;
     height: 3px;
 }
 
+.logo{
+    max-height: 40px;
+}

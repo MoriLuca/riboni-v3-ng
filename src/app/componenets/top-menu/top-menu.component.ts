@@ -21,6 +21,7 @@ export class TopMenuComponent implements OnInit {
 }
 
 class Testi {
-  liveMonitor = ["Live Monitor",""]
-  recipes = ["Recipes",""]
+  monitor = ["Live Monitor",""];
+  recipes = ["Ricette","Recipes"];
+  production = ["Produzione","Production"];
 }

@@ -47,6 +47,7 @@ import { ResumeComponent } from './componenets/monitor/resume/resume.component';
     HttpClientModule,
     RouterModule.forRoot([
       {path:"",component: HomeComponent},
+      {path:"resume",component: ResumeComponent},
       {path:"tags",component: NormalTagsComponent},
       {path:"criticalTags",component: CriticalTagsComponent},
       {path:"utilityTags",component: UtilityTagsComponent},
