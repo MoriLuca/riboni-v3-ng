@@ -21,16 +21,24 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getLiveValues () {
+  getNormalTags () {
     // return this.http.get<ITag[]>(this.endpoint + 'getLiveTags',this.httpOptions);
-    return this.http.get<ITag[]>('http://localhost:1880/api/getLiveTags',this.httpOptions);
-    
+    return this.http.get<ITag[]>('http://localhost:1880/api/getNormalTags',this.httpOptions);
   }
 
-  getCriticalValues () {
+  getCriticalTags () {
     // return this.http.get<ITag[]>(this.endpoint + 'getLiveTags',this.httpOptions);
     return this.http.get<ITag[]>('http://localhost:1880/api/getCriticalTags',this.httpOptions);
-    
+  }
+
+  getUtilityTags () {
+    // return this.http.get<ITag[]>(this.endpoint + 'getLiveTags',this.httpOptions);
+    return this.http.get<ITag[]>('http://localhost:1880/api/getUtilityTags',this.httpOptions);
+  }
+
+  getAlarmsTags () {
+    // return this.http.get<ITag[]>(this.endpoint + 'getLiveTags',this.httpOptions);
+    return this.http.get<ITag[]>('http://localhost:1880/api/getAlarmsTags',this.httpOptions);
   }
 
   // // post and get 

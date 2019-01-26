@@ -1,0 +1,12 @@
+<h1>Parametri Normali</h1>
+<p *ngFor="let p of plc.normalTags">{{p.name}} | {{p.value}}</p>
+<hr>
+<h1>Parametri Critici</h1>
+<p *ngFor="let p of plc.criticalTags">{{p.name}} | {{p.value}}</p>
+<hr>
+<h1>Parametri utility</h1>
+<p *ngFor="let p of plc.utilityTags">{{p.name}} | {{p.value}}</p>
+<hr>
+<h1>Allarmi</h1>
+<p *ngFor="let p of plc.alarmsTags">{{p.name}} | {{p.value}}</p>
+

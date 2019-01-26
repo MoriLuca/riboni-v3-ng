@@ -24,26 +24,50 @@ export class LiveMonitorComponent implements OnInit {
 
   ngOnInit() {
     this.plc = new PlcParametriLive();
-    this.getLiveValues();
-    this.getCriticalValues();
-    setInterval(()=>this.getLiveValues(), 2000);
-    setInterval(()=>this.getCriticalValues(), 750);
+    this.getNormalTags();
+    this.getCriticalTags();
+    this.getUtilityTags();
+    this.getAlarmsTags();
+    setInterval(()=>this.getNormalTags(), 2000);
+    setInterval(()=>this.getCriticalTags(), 750);
+    setInterval(()=>this.getUtilityTags(), 1000);
+    setInterval(()=>this.getAlarmsTags(), 5000);
   }
 
-  getLiveValues(){
-    this.api.getLiveValues().subscribe(
+  getNormalTags(){
+    this.api.getNormalTags().subscribe(
       (success)=>{
-        this.plc.liveMonitor = success;
+        this.plc.normalTags = success;
         
       },
       (err)=>{}
     );
   }
 
-  getCriticalValues(){
-    this.api.getCriticalValues().subscribe(
+  getCriticalTags(){
+    this.api.getCriticalTags().subscribe(
       (success)=>{
         this.plc.criticalTags = success;
+        
+      },
+      (err)=>{}
+    );
+  }
+
+  getUtilityTags(){
+    this.api.getUtilityTags().subscribe(
+      (success)=>{
+        this.plc.utilityTags = success;
+        
+      },
+      (err)=>{}
+    );
+  }
+
+  getAlarmsTags(){
+    this.api.getAlarmsTags().subscribe(
+      (success)=>{
+        this.plc.alarmsTags = success;
         
       },
       (err)=>{}

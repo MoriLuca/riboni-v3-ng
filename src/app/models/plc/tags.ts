@@ -1,12 +1,16 @@
 export class PlcParametriLive{
     //elenco delle tags dinamiche ricevute, per poter far visualizzare in modo dinamico tutte le 
     //tags che vengono passate
-    liveMonitor: ITag[];
+    normalTags: ITag[];
     criticalTags: ITag[];
+    utilityTags: ITag[];
+    alarmsTags: ITag[];
 
     public constructor(){
-        this.liveMonitor = [];
+        this.normalTags = [];
         this.criticalTags = [];
+        this.utilityTags = [];
+        this.alarmsTags = [];
     }
 }
 
