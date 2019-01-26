@@ -4,11 +4,11 @@ import { PlcParametriLive, ITag} from 'src/app/models/plc/tags';
 import { ApiService } from 'src/app/services/api/api.service';
 
 @Component({
-  selector: 'app-live-monitor',
-  templateUrl: './live-monitor.component.html',
-  styleUrls: ['./live-monitor.component.css']
+  selector: 'app-resume',
+  templateUrl: './resume.component.html',
+  styleUrls: ['./resume.component.css']
 })
-export class LiveMonitorComponent implements OnInit {
+export class ResumeComponent implements OnInit {
 
   txt = new Testi();
   rtmSvc : GlobalRuntimeConfigService;

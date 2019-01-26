@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LiveMonitorComponent } from './live-monitor.component';
+import { ResumeComponent } from './resume.component';
 
 describe('LiveMonitorComponent', () => {
-  let component: LiveMonitorComponent;
-  let fixture: ComponentFixture<LiveMonitorComponent>;
+  let component: ResumeComponent;
+  let fixture: ComponentFixture<ResumeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LiveMonitorComponent ]
+      declarations: [ ResumeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LiveMonitorComponent);
+    fixture = TestBed.createComponent(ResumeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

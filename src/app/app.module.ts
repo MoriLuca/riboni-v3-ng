@@ -14,12 +14,12 @@ import { AppComponent } from './app.component';
 import { TopMenuComponent } from './componenets/top-menu/top-menu.component';
 import { HomeComponent } from './componenets/home/home.component';
 import { NotFoundComponentComponent } from './componenets/not-found-component/not-found-component.component';
-import { LiveMonitorComponent } from './componenets/monitor/live-monitor/live-monitor.component';
 import { RecipesComponent } from './componenets/recipes/recipes.component';
 import { NormalTagsComponent } from './componenets/monitor/normal-tags/normal-tags.component';
 import { CriticalTagsComponent } from './componenets/monitor/critical-tags/critical-tags.component';
 import { UtilityTagsComponent } from './componenets/monitor/utility-tags/utility-tags.component';
 import { AlarmsTagsComponent } from './componenets/monitor/alarms-tags/alarms-tags.component';
+import { ResumeComponent } from './componenets/monitor/resume/resume.component';
 
 
 
@@ -33,12 +33,12 @@ import { AlarmsTagsComponent } from './componenets/monitor/alarms-tags/alarms-ta
     TopMenuComponent,
     HomeComponent,
     NotFoundComponentComponent,
-    LiveMonitorComponent,
     RecipesComponent,
     NormalTagsComponent,
     CriticalTagsComponent,
     UtilityTagsComponent,
     AlarmsTagsComponent,
+    ResumeComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +47,10 @@ import { AlarmsTagsComponent } from './componenets/monitor/alarms-tags/alarms-ta
     HttpClientModule,
     RouterModule.forRoot([
       {path:"",component: HomeComponent},
+      {path:"tags",component: NormalTagsComponent},
+      {path:"criticalTags",component: CriticalTagsComponent},
+      {path:"utilityTags",component: UtilityTagsComponent},
+      {path:"alarmsTags",component: AlarmsTagsComponent},
       
       //esempi
       // {path:"laghi",component: LaghiComponent},
