@@ -41,6 +41,10 @@ export class ApiService {
     return this.http.get<ITag[]>('http://localhost:1880/api/getAlarmsTags',this.httpOptions);
   }
 
+  getUltimiTagli (rowNumber: number) {
+    return this.http.get('http://localhost:1880/api/tagli?count='+rowNumber,this.httpOptions);
+  }
+
   // // post and get 
   // addNewPerson (user:UserForDotnet) {
   //   let body =  JSON.stringify(user);

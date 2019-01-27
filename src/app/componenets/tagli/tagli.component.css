@@ -1,0 +1,16 @@
+.menu{
+    padding: 1em 0em 0em 1em;
+}
+
+.row-input{
+    width: 3em;
+}
+
+.table-container{
+    padding: 1em;
+}
+
+.table-border{
+    border: 1px solid gainsboro;
+    box-shadow: 5px 5px 5px gray;
+}

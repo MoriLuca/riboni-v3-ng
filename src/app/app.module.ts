@@ -20,6 +20,7 @@ import { CriticalTagsComponent } from './componenets/monitor/critical-tags/criti
 import { UtilityTagsComponent } from './componenets/monitor/utility-tags/utility-tags.component';
 import { AlarmsTagsComponent } from './componenets/monitor/alarms-tags/alarms-tags.component';
 import { ResumeComponent } from './componenets/monitor/resume/resume.component';
+import { TagliComponent } from './componenets/tagli/tagli.component';
 
 
 
@@ -39,6 +40,7 @@ import { ResumeComponent } from './componenets/monitor/resume/resume.component';
     UtilityTagsComponent,
     AlarmsTagsComponent,
     ResumeComponent,
+    TagliComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +49,7 @@ import { ResumeComponent } from './componenets/monitor/resume/resume.component';
     HttpClientModule,
     RouterModule.forRoot([
       {path:"",component: HomeComponent},
+      {path:"tagli",component: TagliComponent},
       {path:"resume",component: ResumeComponent},
       {path:"tags",component: NormalTagsComponent},
       {path:"criticalTags",component: CriticalTagsComponent},
