@@ -1,0 +1,13 @@
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>NodeId</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let obj of _opcuaBrowserResults.browseResults">
+      <td>{{obj.browseName.name}}</td>
+      <td>{{obj.nodeId}}</td>
+    </tr>
+  </tbody>
+</table>

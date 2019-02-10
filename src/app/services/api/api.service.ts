@@ -10,41 +10,51 @@ import { ITag } from 'src/app/models/plc/tags';
 })
 export class ApiService {
 
-  private backendUrl = "localhost:1880/";
+  private backendUrl = "http://localhost:1880/";
   
   private endpoint = this.backendUrl + 'api/';
   private httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json',  
+    'Content-Type':  'application/json',
+    'Access-Control-Allow-Origin': '*'
   })
 };
 
   constructor(private http: HttpClient) { }
 
-  getNormalTags () {
-    // return this.http.get<ITag[]>(this.endpoint + 'getLiveTags',this.httpOptions);
-    return this.http.get<ITag[]>('http://localhost:1880/api/getNormalTags',this.httpOptions);
+
+  //#region Tags Handler
+  getAllTags () {
+    return this.http.get<ITag[]>(this.endpoint+'tags/readAllTags',this.httpOptions);
   }
 
-  getCriticalTags () {
-    // return this.http.get<ITag[]>(this.endpoint + 'getLiveTags',this.httpOptions);
-    return this.http.get<ITag[]>('http://localhost:1880/api/getCriticalTags',this.httpOptions);
+  getCurrentRecepy () {
+    return this.http.get<ITag[]>(this.endpoint+'tags/ricettaCorrente',this.httpOptions);
+  }
+  
+
+  getTagsByGroup (groupName: string) {
+    return this.http.get<ITag[]>(this.endpoint+'tags/readTagsGroup?tagname='+groupName,this.httpOptions);
   }
 
-  getUtilityTags () {
-    // return this.http.get<ITag[]>(this.endpoint + 'getLiveTags',this.httpOptions);
-    return this.http.get<ITag[]>('http://localhost:1880/api/getUtilityTags',this.httpOptions);
+  getTag (tagName: string) {
+    return this.http.get<ITag[]>(this.endpoint+'tags/readTag&tagname='+tagName,this.httpOptions);
+  }
+  //#endregion
+
+
+
+  //#region OPCUA Handler
+  getOPCUABrowserResults () {
+    return this.http.get(this.endpoint+'OPCUA/actualBrowserResults',this.httpOptions);
   }
 
-  getAlarmsTags () {
-    // return this.http.get<ITag[]>(this.endpoint + 'getLiveTags',this.httpOptions);
-    return this.http.get<ITag[]>('http://localhost:1880/api/getAlarmsTags',this.httpOptions);
+  deleteOPCUABrowserResults (){
+    return this.http.delete(this.endpoint+'OPCUA/actualBrowserResults',this.httpOptions);
   }
+  //#endregion
 
-  getUltimiTagli (rowNumber: number) {
-    return this.http.get('http://localhost:1880/api/tagli?count='+rowNumber,this.httpOptions);
-  }
-
+  
   // // post and get 
   // addNewPerson (user:UserForDotnet) {
   //   let body =  JSON.stringify(user);

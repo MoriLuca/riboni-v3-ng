@@ -29,7 +29,7 @@ export class AlarmsTagsComponent implements OnInit {
   }
 
   getAlarmsTags(){
-    this.api.getAlarmsTags().subscribe(
+    this.api.getTagsByGroup("alarms").subscribe(
       (success)=>{
         this.plc.alarmsTags = success;
         

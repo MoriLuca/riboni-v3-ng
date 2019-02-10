@@ -25,17 +25,13 @@ export class ResumeComponent implements OnInit {
   ngOnInit() {
     this.plc = new PlcParametriLive();
     this.getNormalTags();
-    this.getCriticalTags();
-    this.getUtilityTags();
-    this.getAlarmsTags();
+
     setInterval(()=>this.getNormalTags(), 2000);
-    setInterval(()=>this.getCriticalTags(), 750);
-    setInterval(()=>this.getUtilityTags(), 1000);
-    setInterval(()=>this.getAlarmsTags(), 5000);
+
   }
 
   getNormalTags(){
-    this.api.getNormalTags().subscribe(
+    this.api.getAllTags().subscribe(
       (success)=>{
         this.plc.normalTags = success;
         
@@ -44,35 +40,6 @@ export class ResumeComponent implements OnInit {
     );
   }
 
-  getCriticalTags(){
-    this.api.getCriticalTags().subscribe(
-      (success)=>{
-        this.plc.criticalTags = success;
-        
-      },
-      (err)=>{}
-    );
-  }
-
-  getUtilityTags(){
-    this.api.getUtilityTags().subscribe(
-      (success)=>{
-        this.plc.utilityTags = success;
-        
-      },
-      (err)=>{}
-    );
-  }
-
-  getAlarmsTags(){
-    this.api.getAlarmsTags().subscribe(
-      (success)=>{
-        this.plc.alarmsTags = success;
-        
-      },
-      (err)=>{}
-    );
-  }
 
 }
 

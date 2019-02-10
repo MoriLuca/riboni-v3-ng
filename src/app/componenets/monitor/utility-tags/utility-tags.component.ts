@@ -24,20 +24,11 @@ export class UtilityTagsComponent implements OnInit {
 
   ngOnInit() {
     this.plc = new PlcParametriLive();
-    this.getUtilityTags();
+    // this.getUtilityTags();
 
-    setInterval(()=>this.getUtilityTags(), 1000);
+    // setInterval(()=>this.getUtilityTags(), 1000);
   }
 
-  getUtilityTags(){
-    this.api.getUtilityTags().subscribe(
-      (success)=>{
-        this.plc.utilityTags = success;
-        
-      },
-      (err)=>{}
-    );
-  }
 
 }
 

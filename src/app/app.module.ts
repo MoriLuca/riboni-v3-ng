@@ -15,12 +15,11 @@ import { TopMenuComponent } from './componenets/top-menu/top-menu.component';
 import { HomeComponent } from './componenets/home/home.component';
 import { NotFoundComponentComponent } from './componenets/not-found-component/not-found-component.component';
 import { RecipesComponent } from './componenets/recipes/recipes.component';
-import { NormalTagsComponent } from './componenets/monitor/normal-tags/normal-tags.component';
-import { CriticalTagsComponent } from './componenets/monitor/critical-tags/critical-tags.component';
 import { UtilityTagsComponent } from './componenets/monitor/utility-tags/utility-tags.component';
 import { AlarmsTagsComponent } from './componenets/monitor/alarms-tags/alarms-tags.component';
 import { ResumeComponent } from './componenets/monitor/resume/resume.component';
 import { TagliComponent } from './componenets/tagli/tagli.component';
+import { OpcuaComponent } from './componenets/opcua/opcua.component';
 
 
 
@@ -35,12 +34,11 @@ import { TagliComponent } from './componenets/tagli/tagli.component';
     HomeComponent,
     NotFoundComponentComponent,
     RecipesComponent,
-    NormalTagsComponent,
-    CriticalTagsComponent,
     UtilityTagsComponent,
     AlarmsTagsComponent,
     ResumeComponent,
     TagliComponent,
+    OpcuaComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,10 +49,9 @@ import { TagliComponent } from './componenets/tagli/tagli.component';
       {path:"",component: HomeComponent},
       {path:"tagli",component: TagliComponent},
       {path:"resume",component: ResumeComponent},
-      {path:"tags",component: NormalTagsComponent},
-      {path:"criticalTags",component: CriticalTagsComponent},
       {path:"utilityTags",component: UtilityTagsComponent},
       {path:"alarmsTags",component: AlarmsTagsComponent},
+      {path:"opcua",component: OpcuaComponent},
       
       //esempi
       // {path:"laghi",component: LaghiComponent},

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CriticalTagsComponent } from './critical-tags.component';
+import { OpcuaComponent } from './opcua.component';
 
-describe('CriticalTagsComponent', () => {
-  let component: CriticalTagsComponent;
-  let fixture: ComponentFixture<CriticalTagsComponent>;
+describe('OpcuaComponent', () => {
+  let component: OpcuaComponent;
+  let fixture: ComponentFixture<OpcuaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CriticalTagsComponent ]
+      declarations: [ OpcuaComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CriticalTagsComponent);
+    fixture = TestBed.createComponent(OpcuaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
