@@ -10,29 +10,10 @@ import { PlcParametriLive } from 'src/app/models/plc/tags';
 })
 export class UtilityTagsComponent implements OnInit {
 
-  txt = new Testi();
-  rtmSvc : GlobalRuntimeConfigService;
-  api : ApiService;
-  plc: PlcParametriLive;
-  
 
-  constructor(_globalRuntimeService :GlobalRuntimeConfigService,
-              _api: ApiService) {
-    this.rtmSvc = _globalRuntimeService;
-    this.api = _api;
-  }
+  constructor(){}
 
-  ngOnInit() {
-    this.plc = new PlcParametriLive();
-    // this.getUtilityTags();
-
-    // setInterval(()=>this.getUtilityTags(), 1000);
-  }
+  ngOnInit() {}
 
 
-}
-
-class Testi {
-  liveMonitor = ["Live Monitor",""]
-  recipes = ["Recipes",""]
 }

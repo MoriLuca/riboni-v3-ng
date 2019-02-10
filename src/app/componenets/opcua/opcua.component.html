@@ -1,13 +1,18 @@
+<div>
+  Ricerca Tag <input type="text" [(ngModel)]="_query"/>
+</div>
 
-<table>
+<table class="table table-sm table-striped">
   <thead>
-    <th>Name</th>
-    <th>NodeId</th>
+    <tr>
+      <th scope="col">Nome Tag</th>
+      <th scope="col">NodeId</th>
+    </tr>
   </thead>
   <tbody>
     <tr *ngFor="let obj of _opcuaBrowserResults.browseResults">
-      <td>{{obj.browseName.name}}</td>
-      <td>{{obj.nodeId}}</td>
+      <td *ngIf="obj.browseName.name.includes(_query)">{{obj.browseName.name}}</td>
+      <td *ngIf="obj.browseName.name.includes(_query)">{{obj.nodeId}}</td>
     </tr>
   </tbody>
 </table>

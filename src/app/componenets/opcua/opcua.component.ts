@@ -10,7 +10,8 @@ import { ApiService } from 'src/app/services/api/api.service';
 export class OpcuaComponent implements OnInit {
 
   _opcuaBrowserResults = {};
-  
+  private _query: string = "";
+
   constructor(private _rtmSvc :GlobalRuntimeConfigService,
               private _api: ApiService) {
   }

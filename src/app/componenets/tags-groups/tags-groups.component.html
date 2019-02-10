@@ -1,0 +1,18 @@
+<div>
+  RicercaTag <input type="text" [(ngModel)]="_query"/>
+</div>
+
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nome Tag</th>
+      <th scope="col">Valore Attuale</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of _plc.normalTags">
+      <td *ngIf="p.name.includes(_query)">{{p.name}}</td>
+      <td *ngIf="p.name.includes(_query)">{{ (typsOf(p.value) == 'number' )? (p.value | number:'1.0-3') : p.value}}</td>
+    </tr>
+  </tbody>
+</table>
