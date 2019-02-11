@@ -18,12 +18,11 @@ import { RecipesComponent } from './componenets/recipes/recipes.component';
 import { UtilityTagsComponent } from './componenets/monitor/utility-tags/utility-tags.component';
 import { TagliComponent } from './componenets/tagli/tagli.component';
 import { OpcuaComponent } from './componenets/opcua/opcua.component';
-import { RicettaComponent } from './componenets/monitor/ricetta/ricetta.component';
 import { AlarmsComponent } from './componenets/monitor/alarms/alarms.component';
 import { DettaglioComponent } from './componenets/monitor/dettaglio/dettaglio.component';
-import { LavorazioneComponent } from './componenets/monitor/lavorazione/lavorazione.component';
 import { ResumeComponent } from './componenets/monitor/resume/resume.component';
 import { TagsGroupsComponent } from './componenets/tags-groups/tags-groups.component';
+import { LavorazioniComponent } from './componenets/lavorazioni/lavorazioni.component';
 
 
 
@@ -43,10 +42,9 @@ import { TagsGroupsComponent } from './componenets/tags-groups/tags-groups.compo
     OpcuaComponent,
     ResumeComponent,
     TagsGroupsComponent,
-    RicettaComponent,
     AlarmsComponent,
     DettaglioComponent,
-    LavorazioneComponent,
+    LavorazioniComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,8 +56,7 @@ import { TagsGroupsComponent } from './componenets/tags-groups/tags-groups.compo
       {path:"tagli",component: TagliComponent},
       //monitor
       {path:"resume",component: ResumeComponent},
-      {path:"ricetta",component: RicettaComponent},
-      {path:"lavorazione",component: LavorazioneComponent},
+      {path:"lavorazioni",component: LavorazioniComponent},
       {path:"dettaglio",component: DettaglioComponent},
       {path:"utility",component: UtilityTagsComponent},
       {path:"alarms",component: AlarmsComponent},
