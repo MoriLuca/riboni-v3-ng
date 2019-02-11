@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 import { ITag } from 'src/app/models/plc/tags';
+import { Lavorazione } from 'src/app/models/lavorazione/lavorazione';
 
 
 @Injectable({
@@ -55,6 +56,28 @@ export class ApiService {
   //#endregion
 
   
+
+  //#region Lavorazioni
+  getLavorazioni(){
+    return this.http.get<Lavorazione[]>(this.endpoint + 'lavorazioni', this.httpOptions);
+  }
+
+  putLavorazione(lavorazione: Lavorazione){
+    let body =  JSON.stringify(lavorazione);
+    return this.http.put<number>(this.endpoint + 'lavorazioni', body, this.httpOptions);
+  }
+
+  postLavorazione(lavorazione: Lavorazione){
+    let body =  JSON.stringify(lavorazione);
+    return this.http.post<number>(this.endpoint + 'lavorazioni', body, this.httpOptions);
+  }
+
+  deleteLavorazione(idLavorazione: number){
+    return this.http.delete<number>(this.endpoint + 'lavorazioni?LAVORAZIONE_ID='+idLavorazione, this.httpOptions);
+  }
+
+  //#endregion
+
   // // post and get 
   // addNewPerson (user:UserForDotnet) {
   //   let body =  JSON.stringify(user);

@@ -1,0 +1,9 @@
+tbody tr:hover{
+    transition: all .3s;
+}
+
+tbody tr:hover{
+    background: rgb(32, 178, 110);
+    color: white;
+}
+
