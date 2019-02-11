@@ -37,7 +37,7 @@ export class LavorazioniComponent implements OnInit {
         alert("OK, Righe aggiorate 1.\nOperazione conculsa con successo.");
         this.getLavorazioni();
       } 
-      else alert("Attenzione, operazione non eseguita.");
+      else alert("Attenzione, riscontrato errore, operazione non eseguita.");
     });
   }
 

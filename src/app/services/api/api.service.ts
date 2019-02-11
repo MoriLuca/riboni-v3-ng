@@ -94,6 +94,11 @@ export class ApiService {
   deleteProduzione(idProduzione: number){
     return this.http.delete<number>(this.endpoint + 'produzione?PRODUZIONE_ID='+idProduzione, this.httpOptions);
   }
+
+  aggiornaPriorita(req: {produzioneId: number, priorita: number}){
+    let body =  JSON.stringify(req);
+    return this.http.post<number>(this.endpoint + 'produzione', body, this.httpOptions);
+  }
   //#endregion
 
 

@@ -1,10 +1,12 @@
-export interface Produzione {
+export class Produzione {
     
     PRODUZIONE_ID: number;
-    NOME_LAVORAZIONE: string;
     CODICE_PRODUZIONE: string;
+    NOME_LAVORAZIONE: string;
+    LAVORAZIONE_ID: number;
     TARGET: number;
     PRODOTTI: number;
+    PRIORITA: number;
 
     
     // clone(l: Lavorazione){
