@@ -14,7 +14,6 @@ import { AppComponent } from './app.component';
 import { TopMenuComponent } from './componenets/top-menu/top-menu.component';
 import { HomeComponent } from './componenets/home/home.component';
 import { NotFoundComponentComponent } from './componenets/not-found-component/not-found-component.component';
-import { RecipesComponent } from './componenets/recipes/recipes.component';
 import { UtilityTagsComponent } from './componenets/monitor/utility-tags/utility-tags.component';
 import { TagliComponent } from './componenets/tagli/tagli.component';
 import { OpcuaComponent } from './componenets/opcua/opcua.component';
@@ -23,6 +22,7 @@ import { DettaglioComponent } from './componenets/monitor/dettaglio/dettaglio.co
 import { ResumeComponent } from './componenets/monitor/resume/resume.component';
 import { TagsGroupsComponent } from './componenets/tags-groups/tags-groups.component';
 import { LavorazioniComponent } from './componenets/lavorazioni/lavorazioni.component';
+import { ProduzioneComponent } from './componenets/produzione/produzione.component';
 
 
 
@@ -36,7 +36,6 @@ import { LavorazioniComponent } from './componenets/lavorazioni/lavorazioni.comp
     TopMenuComponent,
     HomeComponent,
     NotFoundComponentComponent,
-    RecipesComponent,
     UtilityTagsComponent,
     TagliComponent,
     OpcuaComponent,
@@ -45,6 +44,7 @@ import { LavorazioniComponent } from './componenets/lavorazioni/lavorazioni.comp
     AlarmsComponent,
     DettaglioComponent,
     LavorazioniComponent,
+    ProduzioneComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +56,7 @@ import { LavorazioniComponent } from './componenets/lavorazioni/lavorazioni.comp
       {path:"tagli",component: TagliComponent},
       //monitor
       {path:"resume",component: ResumeComponent},
+      {path:"produzione",component: ProduzioneComponent},
       {path:"lavorazioni",component: LavorazioniComponent},
       {path:"dettaglio",component: DettaglioComponent},
       {path:"utility",component: UtilityTagsComponent},

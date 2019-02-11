@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 import { ITag } from 'src/app/models/plc/tags';
 import { Lavorazione } from 'src/app/models/lavorazione/lavorazione';
+import { Produzione } from 'src/app/models/produzione/produzione';
 
 
 @Injectable({
@@ -77,6 +78,26 @@ export class ApiService {
   }
 
   //#endregion
+
+
+
+  //#region Produzione
+  getProduzione(){
+    return this.http.get<Produzione[]>(this.endpoint + 'produzione', this.httpOptions);
+  }
+
+  putProduzione(prod: Produzione){
+    let body =  JSON.stringify(prod);
+    return this.http.put<number>(this.endpoint + 'produzione', body, this.httpOptions);
+  }
+
+  deleteProduzione(idProduzione: number){
+    return this.http.delete<number>(this.endpoint + 'produzione?PRODUZIONE_ID='+idProduzione, this.httpOptions);
+  }
+  //#endregion
+
+
+
 
   // // post and get 
   // addNewPerson (user:UserForDotnet) {
