@@ -10,8 +10,16 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/tagli">Tagli Effettuati</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/produzione">Produzione</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Produzione
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/produzione">Lista Produzione</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/produzioneConclusa">Conclusi</a>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/lavorazioni">Lavorazioni</a>
@@ -20,12 +28,15 @@
         <a class="nav-link" routerLink="/opcua">OPCUA</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
           Monitoraggio PLC
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="/resume">Resume<fa name="list" style="float:right; color: gray;"></fa> </a>
-          <a class="dropdown-item" routerLink="/lavorazione">Lavorazione<fa name="tags" style="float:right; color: dodgerblue;"></fa> </a>
+          <a class="dropdown-item" routerLink="/resume">Resume<fa name="list" style="float:right; color: gray;"></fa>
+          </a>
+          <a class="dropdown-item" routerLink="/lavorazione">Lavorazione<fa name="tags" style="float:right; color: dodgerblue;"></fa>
+          </a>
           <a class="dropdown-item" routerLink="/dettaglio">Dettaglio<fa name="tags" style="float:right; color: forestgreen;"></fa></a>
           <a class="dropdown-item" routerLink="/ricetta">Ricetta<fa name="file-text" style="float:right; color: gray;"></fa></a>
           <a class="dropdown-item" routerLink="/utility">Utility<fa name="exclamation-circle" style="float:right; color: forestgreen;"></fa></a>
@@ -35,6 +46,6 @@
       </li>
     </ul>
   </div>
- 
+
 </nav>
 <div class="outborder"></div>

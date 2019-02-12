@@ -23,6 +23,7 @@ import { ResumeComponent } from './componenets/monitor/resume/resume.component';
 import { TagsGroupsComponent } from './componenets/tags-groups/tags-groups.component';
 import { LavorazioniComponent } from './componenets/lavorazioni/lavorazioni.component';
 import { ProduzioneComponent } from './componenets/produzione/produzione.component';
+import { ProduzioneConclusaComponent } from './componenets/produzione-conclusa/produzione-conclusa.component';
 
 
 
@@ -45,6 +46,7 @@ import { ProduzioneComponent } from './componenets/produzione/produzione.compone
     DettaglioComponent,
     LavorazioniComponent,
     ProduzioneComponent,
+    ProduzioneConclusaComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +59,8 @@ import { ProduzioneComponent } from './componenets/produzione/produzione.compone
       //monitor
       {path:"resume",component: ResumeComponent},
       {path:"produzione",component: ProduzioneComponent},
+      {path:"produzioneConclusa",component: ProduzioneConclusaComponent},
+      {path:"produzioneConclusa",component: ProduzioneComponent},      
       {path:"lavorazioni",component: LavorazioniComponent},
       {path:"dettaglio",component: DettaglioComponent},
       {path:"utility",component: UtilityTagsComponent},

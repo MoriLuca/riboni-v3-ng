@@ -5,6 +5,7 @@ import { map, catchError, tap } from 'rxjs/operators';
 import { ITag } from 'src/app/models/plc/tags';
 import { Lavorazione } from 'src/app/models/lavorazione/lavorazione';
 import { Produzione } from 'src/app/models/produzione/produzione';
+import { ProduzioneConclusa } from 'src/app/models/produzione/produzioneConclusa';
 
 
 @Injectable({
@@ -91,8 +92,8 @@ export class ApiService {
     return this.http.put<number>(this.endpoint + 'produzione', body, this.httpOptions);
   }
 
-  deleteProduzione(idProduzione: number){
-    return this.http.delete<number>(this.endpoint + 'produzione?PRODUZIONE_ID='+idProduzione, this.httpOptions);
+  chiusuraProduzione(p: Produzione){
+    return this.http.delete<number>(this.endpoint + `produzione?produzioneId=${p.PRODUZIONE_ID}&lavorazioneId=${p.LAVORAZIONE_ID}`, this.httpOptions);
   }
 
   aggiornaPriorita(req: {produzioneId: number, priorita: number}){
@@ -101,6 +102,12 @@ export class ApiService {
   }
   //#endregion
 
+
+  //#region Produzioni Conlcusa
+  getProduzioneConclusa(){
+    return this.http.get<ProduzioneConclusa[]>(this.endpoint + 'produzioneConclusa', this.httpOptions);
+  }
+  //#endregion
 
 
 

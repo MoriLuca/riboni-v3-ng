@@ -1,0 +1,24 @@
+<div>
+  Ricerca Produzione per CODICE <input type="text" [(ngModel)]="_query"/>
+</div>
+
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Codice Produzione</th>
+      <th scope="col">Nome Lavorazione</th>
+      <th scope="col">Target</th>
+      <th scope="col">Prodotti</th>
+      <th scope="col">Data Consuntivazione</th>
+    </tr>
+  </thead>
+  <tbody class="produzione">
+    <tr *ngFor="let p of _produzioni">
+      <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.CODICE_PRODUZIONE}}</td>
+      <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.NOME_LAVORAZIONE }}</td>
+      <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.TARGET}}</td>
+      <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.PRODOTTI}}</td>
+      <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.DATA_CONSUNTIVAZIONE}}</td>
+    </tr>
+  </tbody>
+</table>

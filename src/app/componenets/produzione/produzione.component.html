@@ -1,5 +1,5 @@
 <div>
-  Ricerca Lavorazione <input type="text" [(ngModel)]="_query"/>
+  Ricerca Produzione <input type="text" [(ngModel)]="_query"/>
 </div>
 
 <table class="table table-sm table-striped">
@@ -20,7 +20,7 @@
       <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.TARGET}}</td>
       <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.PRODOTTI}}</td>
       <td  class="priorita-cell" *ngIf="p.CODICE_PRODUZIONE.includes(_query)" (click)="cambiaPriorita(p)">{{p.PRIORITA}}</td>
-      <td  class="concludi-cell" *ngIf="p.CODICE_PRODUZIONE.includes(_query)" (click)="concludi(p)"><fa name="times"></fa> </td>
+      <td  class="concludi-cell" *ngIf="p.CODICE_PRODUZIONE.includes(_query)" (click)="chiudiProduzione(p)"><fa name="times"></fa> </td>
     </tr>
   </tbody>
 </table>
@@ -41,6 +41,6 @@
   </div>
 
   <div class="wrapper-opzioni">
-    <button class="btn btn-primary" (click)="aggiungiProduzione()">Aggiungi Nuova Produzione</button>
+    <button class="btn btn-primary" (click)="aggiungiProduzione()" [disabled]="enableAggiungiProduzione()">Aggiungi Nuova Produzione</button>
   </div>
 </div>

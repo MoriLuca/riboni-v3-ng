@@ -21,6 +21,7 @@ export class ProduzioneComponent implements OnInit {
   ngOnInit() {
     this.getProduzioni();
     this.getLavorazioni();
+    this._produzione.init();
   }
 
   getProduzioni(){
@@ -68,4 +69,30 @@ export class ProduzioneComponent implements OnInit {
       }
     });
   }
+
+  enableAggiungiProduzione(){
+    let codice = (this._produzioni.find(c=>c.CODICE_PRODUZIONE === this._produzione.CODICE_PRODUZIONE) === undefined 
+      && this._produzione.CODICE_PRODUZIONE.trim().length > 0);
+    
+    let idLav = this._produzione.LAVORAZIONE_ID;
+    let priorita = this._produzione.PRIORITA >= 0 && this._produzione.PRIORITA <= 100; 
+    let target = this._produzione.TARGET > 0;
+    return !(codice && idLav && priorita && target);
+  }
+
+  chiudiProduzione(p: Produzione){
+    console.log(p);
+    
+    this._api.chiusuraProduzione(p).subscribe((res)=>{
+      if(res == 1){
+        alert("OK, Produzione Archiviata.\nOperazione conculsa con successo.");
+        this.getProduzioni();
+      }
+      else{
+        alert("Attenzione, riscontrato errore, operazione non eseguita.");
+      }
+    });
+  }
+
+
 }

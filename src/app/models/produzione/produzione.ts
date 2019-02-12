@@ -25,18 +25,13 @@ export class Produzione {
         
     // }
 
-    // init(){
-    //     this.LAVORAZIONE_ID = -1;
-    //     this.NAME = "";
-    //     this.DATA_CREAZIONE = new Date(); 
-    //     this.PARAM_1 = 0;
-    //     this.PARAM_2 = 0;
-    //     this.PARAM_3 = 0;
-    //     this.PARAM_4 = 0;
-    //     this.PARAM_5 = 0;
-    //     this.PARAM_6 = 0;
-    //     this.PARAM_7 = 0;
-    //     this.PARAM_8 = 0;
-    //     this.PARAM_9 = 0;
-    // }
+    init(){
+        this.PRODUZIONE_ID = 0;
+        this.CODICE_PRODUZIONE = "";
+        this.NOME_LAVORAZIONE = "";
+        this.LAVORAZIONE_ID = 0;
+        this.TARGET = 0;
+        this.PRODOTTI = 0;
+        this.PRIORITA = 0;
+    }
 }
