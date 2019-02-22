@@ -2,6 +2,9 @@
     transition: all .2s;
 }
 
+table{
+    text-align: center;
+}
 .produzione tr:hover{
     background: rgb(165, 226, 165);
 }
@@ -12,9 +15,21 @@
     cursor: pointer;
 }
 
-
+.concludi-cell{
+    color: maroon;
+}
 .concludi-cell:hover{
+    background:rgb(51, 12, 9);
+    cursor: pointer;
+    color: snow;
+}
+
+
+.inizia-cell{
+    color: forestgreen;
+    text-align: center;
+}
+.inizia-cell:hover{
     background:rgb(128, 206, 154);
-    color: red;
     cursor: pointer;
 }

@@ -3,6 +3,7 @@ import { Produzione } from 'src/app/models/produzione/produzione';
 import { GlobalRuntimeConfigService } from 'src/app/services/globalRuntimeConfig/global-runtime-config.service';
 import { ApiService } from 'src/app/services/api/api.service';
 import { Lavorazione } from 'src/app/models/lavorazione/lavorazione';
+import { ITag } from 'src/app/models/plc/tags';
 
 @Component({
   selector: 'app-produzione',
@@ -92,6 +93,52 @@ export class ProduzioneComponent implements OnInit {
         alert("Attenzione, riscontrato errore, operazione non eseguita.");
       }
     });
+  }
+
+  iniziaProduzione(p: Produzione){
+    console.log(p);
+
+
+    //controllo se c'è qualche produzione attiva : 
+    this._api.getProduzioneattiva().subscribe((produzioneAttiva)=>{
+      if (!produzioneAttiva){
+        
+        let tags :ITag[] = [];
+
+        tags.push({name:'monitor_lavorazione#programma_corrente', value: 200});
+        tags.push({name:'monitor_lavorazione#prossimo_programma', value: 200});
+        tags.push({name:'monitor_lavorazione#tagli_richiesti', value: p.TARGET});
+        tags.push({name:'monitor_home#velocita_lama_sp', value: this._lavorazioni.find(obj=>obj.LAVORAZIONE_ID == p.LAVORAZIONE_ID).VELOCITA_LAMA_SP});
+        tags.push({name:'monitor_lavorazione#lunghezza_pezzo', value: this._lavorazioni.find(obj=>obj.LAVORAZIONE_ID == p.LAVORAZIONE_ID).LUNGHEZZA_TAGLIO});
+        tags.push({name:'monitor_lavorazione#ripetizioni', value: 1});
+
+
+        this._api.writeTags(tags).subscribe((res)=>{
+          if(res == 1){
+
+            this._api.postAttivaProduzione(p).subscribe((res)=>{
+              if(res){
+                alert("OK, Produzione Inserita nel PLC.\nOperazione conculsa con successo.");
+                this.getProduzioni();
+              }
+              else{
+                alert("Attenzione, riscontrato errore, operazione non eseguita.");
+              }
+            });
+
+          }
+          else{
+            alert("Attenzione, riscontrato errore, operazione non eseguita.");
+          }
+        });
+
+      }
+      else{
+        alert("Non è possibile aprire una nuova produzione.\nChiudere prima la produzione attiva.");
+      }
+    });
+
+
   }
 
 

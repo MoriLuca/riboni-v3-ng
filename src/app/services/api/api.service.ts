@@ -43,6 +43,11 @@ export class ApiService {
   getTag (tagName: string) {
     return this.http.get<ITag[]>(this.endpoint+'tags/readTag&tagname='+tagName,this.httpOptions);
   }
+
+  writeTags(tags: ITag[]){
+    let body =  JSON.stringify(tags);
+    return this.http.post(this.endpoint+'tags/write', body, this.httpOptions)
+  }
   //#endregion
 
 
@@ -112,6 +117,15 @@ export class ApiService {
   //#region Ultimi Tagli
   getUltimiTagli(rows: number){
     return this.http.get(this.endpoint + 'tagli?rows='+rows , this.httpOptions)
+  }
+
+  getProduzioneattiva(){
+    return this.http.get<boolean>(this.endpoint + 'inizioProduzione', this.httpOptions);
+  }
+
+  postAttivaProduzione(p: Produzione){
+    let body =  JSON.stringify(p);
+    return this.http.post<number>(this.endpoint + 'inizioProduzione', body, this.httpOptions);
   }
   //#endregion
 

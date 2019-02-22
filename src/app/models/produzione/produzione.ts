@@ -7,6 +7,7 @@ export class Produzione {
     TARGET: number;
     PRODOTTI: number;
     PRIORITA: number;
+    DATA_INIZIO: Date;
 
     
     // clone(l: Lavorazione){
@@ -33,5 +34,6 @@ export class Produzione {
         this.TARGET = 0;
         this.PRODOTTI = 0;
         this.PRIORITA = 0;
+        this.DATA_INIZIO = null;
     }
 }

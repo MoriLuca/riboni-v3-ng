@@ -2,7 +2,7 @@
   Ricerca Produzione <input type="text" [(ngModel)]="_query"/>
 </div>
 
-<table class="table table table-striped">
+<table class="table tablez table-striped">
   <thead>
     <tr>
       <th scope="col">Codice Produzione</th>
@@ -22,8 +22,8 @@
       <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.TARGET}}</td>
       <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.PRODOTTI}}</td>
       <td  class="priorita-cell" *ngIf="p.CODICE_PRODUZIONE.includes(_query)" (click)="cambiaPriorita(p)">{{p.PRIORITA}}</td>
-      <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.DATA_INIZIO || 'Non Iniziata'}}</td>
-      <td  class="inizia-cell" *ngIf="p.CODICE_PRODUZIONE.includes(_query)" (click)="iniziaProduzione(p)"><fa name="right"></fa> </td>
+      <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{(p.DATA_INIZIO | date:'dd/MM/yy HH:mm') || 'Non Iniziata'}}</td>
+      <td  class="inizia-cell" *ngIf="p.CODICE_PRODUZIONE.includes(_query)" (click)="iniziaProduzione(p)"><fa name="play"></fa> </td>
       <td  class="concludi-cell" *ngIf="p.CODICE_PRODUZIONE.includes(_query)" (click)="chiudiProduzione(p)"><fa name="times"></fa> </td>
     </tr>
   </tbody>
