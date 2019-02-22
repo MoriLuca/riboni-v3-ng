@@ -24,6 +24,7 @@ import { TagsGroupsComponent } from './componenets/tags-groups/tags-groups.compo
 import { LavorazioniComponent } from './componenets/lavorazioni/lavorazioni.component';
 import { ProduzioneComponent } from './componenets/produzione/produzione.component';
 import { ProduzioneConclusaComponent } from './componenets/produzione-conclusa/produzione-conclusa.component';
+import { CustomTableComponent } from './luca-mori/table/custom-table/custom-table.component';
 
 
 
@@ -46,7 +47,8 @@ import { ProduzioneConclusaComponent } from './componenets/produzione-conclusa/p
     DettaglioComponent,
     LavorazioniComponent,
     ProduzioneComponent,
-    ProduzioneConclusaComponent
+    ProduzioneConclusaComponent,
+    CustomTableComponent
   ],
   imports: [
     BrowserModule,

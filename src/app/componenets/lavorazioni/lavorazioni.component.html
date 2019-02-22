@@ -5,32 +5,18 @@
 <table class="table table-sm table-striped">
   <thead>
     <tr>
-      <th scope="col">Nome Lavorazione</th>
-      <th scope="col">Data Ultima Modifica</th>
-      <th scope="col">P1</th>
-      <th scope="col">P2</th>
-      <th scope="col">P3</th>
-      <th scope="col">P4</th>
-      <th scope="col">P5</th>
-      <th scope="col">P6</th>
-      <th scope="col">P7</th>
-      <th scope="col">P8</th>
-      <th scope="col">P9</th>
+      <th>Nome Lavorazione</th>
+      <th>Data Ultima Modifica</th>
+      <th>Velocità della lama [m/min]</th>
+      <th>Lunghezza pezzo [mm]</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let p of _lavorazioni" (click)="selectLavorazione(p)">
       <td *ngIf="p.NAME.includes(_query)">{{p.NAME}}</td>
-      <td *ngIf="p.NAME.includes(_query)">{{p.DATA_CREAZIONE }}</td>
-      <td *ngIf="p.NAME.includes(_query)">{{p.PARAM_1}}</td>
-      <td *ngIf="p.NAME.includes(_query)">{{p.PARAM_2}}</td>
-      <td *ngIf="p.NAME.includes(_query)">{{p.PARAM_3}}</td>
-      <td *ngIf="p.NAME.includes(_query)">{{p.PARAM_4}}</td>
-      <td *ngIf="p.NAME.includes(_query)">{{p.PARAM_5}}</td>
-      <td *ngIf="p.NAME.includes(_query)">{{p.PARAM_6}}</td>
-      <td *ngIf="p.NAME.includes(_query)">{{p.PARAM_7}}</td>
-      <td *ngIf="p.NAME.includes(_query)">{{p.PARAM_8}}</td>
-      <td *ngIf="p.NAME.includes(_query)">{{p.PARAM_9}}</td>
+      <td *ngIf="p.NAME.includes(_query)">{{p.DATA_CREAZIONE | date:'dd-MM-yyyy HH:mm'}}</td>
+      <td *ngIf="p.NAME.includes(_query)">{{p.VELOCITA_LAMA_SP}}</td>
+      <td *ngIf="p.NAME.includes(_query)">{{p.LUNGHEZZA_TAGLIO}}</td>
     </tr>
   </tbody>
 </table>
@@ -39,21 +25,14 @@
   <div class="wrapper-lavorazione">
 
     Nome Lavorazione : <input type="text" [(ngModel)]="_lavorazione.NAME" placeholder="">
-    PARAM_1 : <input type="number" [(ngModel)]="_lavorazione.PARAM_1" placeholder="">
-    PARAM_2 : <input type="number" [(ngModel)]="_lavorazione.PARAM_2" placeholder="">
-    PARAM_3 : <input type="number" [(ngModel)]="_lavorazione.PARAM_3" placeholder="">
-    PARAM_4 : <input type="number" [(ngModel)]="_lavorazione.PARAM_4" placeholder="">
-    PARAM_5 : <input type="number" [(ngModel)]="_lavorazione.PARAM_5" placeholder="">
-    PARAM_6 : <input type="number" [(ngModel)]="_lavorazione.PARAM_6" placeholder="">
-    PARAM_7 : <input type="number" [(ngModel)]="_lavorazione.PARAM_7" placeholder="">
-    PARAM_8 : <input type="number" [(ngModel)]="_lavorazione.PARAM_8" placeholder="">
-    PARAM_9 : <input type="number" [(ngModel)]="_lavorazione.PARAM_9" placeholder="">
+    Velocità della lama [m/min]:  <input type="number" [(ngModel)]="_lavorazione.VELOCITA_LAMA_SP" placeholder="">
+    Lunghezza pezzo [mm]: <input type="number" [(ngModel)]="_lavorazione.LUNGHEZZA_TAGLIO" placeholder="">
 
   </div>
 
   <div class="wrapper-opzioni">
     <button class="btn btn-primary" (click)="modificaLavorazione()">Salva Modifiche</button>
-    <button class="btn btn-success" [disabled]="nomeRicettaEsistente()" (click)="creaNuovaRicetta()">Crea nuova Ricetta</button>
+    <button class="btn btn-success" [disabled]="nomeRicettaEsistente()" (click)="creaNuovaLavorazione()">Crea nuova Lavorazione</button>
     <button class="btn btn-warning" (click)="eliminaLavorazione()">Elimina</button>
   </div>
 </div>

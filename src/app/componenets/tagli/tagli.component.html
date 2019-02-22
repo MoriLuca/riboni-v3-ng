@@ -12,8 +12,9 @@
             </thead>
             <tbody>
               <tr *ngFor="let t of tagli; index as i;">{{taglio}}
-                <td *ngFor="let c of header">{{t[c]}}</td>
-                
+                <td *ngFor="let c of header">
+                  {{t[c]}}
+                </td>
               </tr>
             </tbody>
           </table>

@@ -11,7 +11,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let p of _plc.normalTags">
-      <td *ngIf="p.name.includes(_query)">{{p.name}}</td>
+      <td *ngIf="p.name.includes(_query)">{{p.name.substr(p.name.indexOf('#')+1)}}</td>
       <td *ngIf="p.name.includes(_query)">{{ (typsOf(p.value) == 'number' )? (p.value | number:'1.0-3') : p.value}}</td>
     </tr>
   </tbody>

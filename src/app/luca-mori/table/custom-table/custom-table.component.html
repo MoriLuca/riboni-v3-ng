@@ -1,0 +1,13 @@
+<table class="table">
+  
+  <thead>
+    <th *ngFor="let h of tableData.header"> {{h}} </th>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let row of tableData.data" (click)="console.log(row)">
+      <td *ngFor="let value of row">{{value}}</td>
+    </tr>
+  </tbody>
+
+</table>

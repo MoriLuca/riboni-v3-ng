@@ -1,0 +1,13 @@
+*{
+    transition: background .3s ease-in-out;
+}
+table tbody tr{
+    cursor: pointer;
+}
+
+
+table tbody tr:hover{
+    background: forestgreen;
+    color: white;
+    cursor: pointer;
+}

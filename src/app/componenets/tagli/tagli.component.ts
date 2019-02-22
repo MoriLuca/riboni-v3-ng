@@ -11,9 +11,11 @@ export class TagliComponent implements OnInit {
 
   private maxRow = 500;
   private _rowRequestCount = 5;
+  
   get rowRequestCount(): number{
     return this._rowRequestCount;
   }
+
   set rowRequestCount(n: number){
     if (n > this.maxRow) n = this.maxRow;
     if (n < 0 ) n = 1;
@@ -34,21 +36,21 @@ export class TagliComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.getUltimiTagli();
+    this.getUltimiTagli();
   }
 
-  // getUltimiTagli(){
-  //   this.api.getUltimiTagli(this.rowRequestCount).subscribe(
-  //     (success)=>{
-  //       this.tagli = success;
-  //       console.log(this.tagli);
-  //       console.log(Object.keys(this.tagli[0]));
-  //       this.header = Object.keys(this.tagli[0]);
+  getUltimiTagli(){
+    this.api.getUltimiTagli(this.rowRequestCount).subscribe(
+      (success)=>{
+        this.tagli = success;
+        console.log(this.tagli);
+        console.log(Object.keys(this.tagli[0]));
+        this.header = Object.keys(this.tagli[0]);
         
-  //     },
-  //     (err)=>{}
-  //   );
-  // }
+      },
+      (err)=>{}
+    );
+  }
 
 }
 

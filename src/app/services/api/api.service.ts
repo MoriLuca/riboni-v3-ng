@@ -109,6 +109,11 @@ export class ApiService {
   }
   //#endregion
 
+  //#region Ultimi Tagli
+  getUltimiTagli(rows: number){
+    return this.http.get(this.endpoint + 'tagli?rows='+rows , this.httpOptions)
+  }
+  //#endregion
 
 
   // // post and get 

@@ -51,7 +51,15 @@ export class LavorazioniComponent implements OnInit {
     });
   }
 
-  creaNuovaRicetta(){
+  creaNuovaLavorazione(){
+    if (this._lavorazione.LUNGHEZZA_TAGLIO > 600 || this._lavorazione.LUNGHEZZA_TAGLIO < 0){
+      alert("Attenzione, la lunghezza taglio non puo essere maggiore di 600 o minore di 0 [mm].");
+      return;
+    }
+    if (this._lavorazione.VELOCITA_LAMA_SP > 110 || this._lavorazione.VELOCITA_LAMA_SP < 11){
+      alert("Attenzione, la velocità della lama non puo essere maggiore di 110 o minore di 11 [m/min].");
+      return;
+    }
     this._api.putLavorazione(this._lavorazione).subscribe((res)=>{
       if (res == 1){
         alert("OK, Righe aggiunte 1.\nOperazione conculsa con successo.");
