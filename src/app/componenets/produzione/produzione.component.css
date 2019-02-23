@@ -1,8 +1,9 @@
-*{
-    transition: all .2s;
-}
 
-table{
+.table {
+    width: 98%;
+    margin: auto;
+    border: 1px solid lightgray;
+    box-shadow: 3px 3px 3px lightgray;
     text-align: center;
 }
 .produzione tr:hover{
@@ -32,4 +33,71 @@ table{
 .inizia-cell:hover{
     background:rgb(128, 206, 154);
     cursor: pointer;
+}
+
+.ricerca{
+    padding: .5em;
+    display: grid;
+    grid-template-columns:  .5fr 1fr 1fr 1fr;
+}
+
+.input-ricerca {
+    grid-column: 4;
+}
+.popup{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.pointer:hover{
+    cursor: pointer;
+}
+
+.wrapper{
+    background: white;
+    width: 80%;
+    margin: auto;
+    border-radius: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+}
+
+.card-block{
+    padding: 1em;
+}
+
+.hint{
+    border-radius: 5px;
+    background: #fff9e8;
+    color: gray;
+}
+
+.wrapper-opzioni{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 1em;
+}
+
+.input-group-text{
+    width: 25em;
+}
+
+.ricerca{
+    padding: .5em;
+    display: grid;
+    grid-template-columns: .5fr 1fr 1fr 1fr;
+}
+
+.input-ricerca {
+    grid-column: 4;
+}
+
+.input-ricerca .input-group-text{
+    width: 15em;
 }

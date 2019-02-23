@@ -6,6 +6,11 @@
     -moz-transition: all .3s ease-in-out;
 }
 
+thead{
+    background: rgb(198, 231, 252);
+    color: cornflowerblue;
+}
+
 /*
 .btn-outline-dark {
     color: darkmagenta !important;

@@ -1,5 +1,12 @@
-<div>
-  Ricerca Produzione <input type="text" [(ngModel)]="_query"/>
+<div class="ricerca">
+  <div class="btn btn-primary" (click)="aperturaPopupNuovaLavorazione()">Aggiungi Nuova Produzione</div>
+  <div class="input-group input-ricerca">
+    <input type="text" class="form-control" [(ngModel)]="_query" placeholder="Codice Produzione">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Ricerca Produzione</span>
+    </div>
+  </div>
+
 </div>
 
 <table class="table tablez table-striped">
@@ -17,34 +24,76 @@
   </thead>
   <tbody class="produzione">
     <tr *ngFor="let p of _produzioni">
-      <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.CODICE_PRODUZIONE}}</td>
-      <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.NOME_LAVORAZIONE }}</td>
-      <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.TARGET}}</td>
-      <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.PRODOTTI}}</td>
-      <td  class="priorita-cell" *ngIf="p.CODICE_PRODUZIONE.includes(_query)" (click)="cambiaPriorita(p)">{{p.PRIORITA}}</td>
-      <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{(p.DATA_INIZIO | date:'dd/MM/yy HH:mm') || 'Non Iniziata'}}</td>
-      <td  class="inizia-cell" *ngIf="p.CODICE_PRODUZIONE.includes(_query)" (click)="iniziaProduzione(p)"><fa name="play"></fa> </td>
-      <td  class="concludi-cell" *ngIf="p.CODICE_PRODUZIONE.includes(_query)" (click)="chiudiProduzione(p)"><fa name="times"></fa> </td>
+      <td *ngIf="p.CODICE_PRODUZIONE.toLowerCase().includes(_query.toLowerCase())">{{p.CODICE_PRODUZIONE}}</td>
+      <td *ngIf="p.CODICE_PRODUZIONE.toLowerCase().includes(_query.toLowerCase())">{{p.NOME_LAVORAZIONE }}</td>
+      <td *ngIf="p.CODICE_PRODUZIONE.toLowerCase().includes(_query.toLowerCase())">{{p.TARGET}}</td>
+      <td *ngIf="p.CODICE_PRODUZIONE.toLowerCase().includes(_query.toLowerCase())">{{p.PRODOTTI}}</td>
+      <td class="priorita-cell" *ngIf="p.CODICE_PRODUZIONE.toLowerCase().includes(_query.toLowerCase())" (click)="cambiaPriorita(p)">{{p.PRIORITA}}</td>
+      <td *ngIf="p.CODICE_PRODUZIONE.toLowerCase().includes(_query.toLowerCase())">{{(p.DATA_INIZIO | date:'dd/MM/yy HH:mm') || 'Non Iniziata'}}</td>
+      <td class="inizia-cell" *ngIf="p.CODICE_PRODUZIONE.toLowerCase().includes(_query.toLowerCase())" (click)="iniziaProduzione(p)">
+        <fa name="play"></fa>
+      </td>
+      <td class="concludi-cell" *ngIf="p.CODICE_PRODUZIONE.toLowerCase().includes(_query.toLowerCase())" (click)="chiudiProduzione(p)">
+        <fa name="times"></fa>
+      </td>
     </tr>
   </tbody>
 </table>
 
 
 
-<div class="produzione">
-  <div class="wrapper-produzione">
 
-    Codice Produzione : <input type="text" [(ngModel)]="_produzione.CODICE_PRODUZIONE" placeholder="">
-    Lavorazione : 
-    <select [(ngModel)]="_produzione.LAVORAZIONE_ID">
-      <option *ngFor="let l of _lavorazioni" [value]="l.LAVORAZIONE_ID">{{l.NAME}}</option>
-    </select>  
-    Target : <input type="number" [(ngModel)]="_produzione.TARGET" placeholder="">
-    Priorità : <input type="number" [(ngModel)]="_produzione.PRIORITA" placeholder="">
 
+
+
+
+<div class="popup" [hidden]="!_showPopUp">
+  <div class="wrapper">
+
+    <h3 class="card-header">Gestione Produzione <span class="fa fa-close pull-right pointer" (click)="hidePopUp()"></span></h3>
+
+    <div class="card-block">
+      <div class="hint">
+        <p class="pl-3">In questa schermata è possibile aggiungere una nuova produzione,<br>
+          partendo dai campi vuoti, oppure prendendo come base una esistente.
+        </p>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Codice Produzione</span>
+        </div>
+        <input type="text" class="form-control" [(ngModel)]="_produzione.CODICE_PRODUZIONE" placeholder="Assegna un codice alla Produzione">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Lavorazione da Utilizzare</span>
+        </div>
+        <select [(ngModel)]="_produzione.LAVORAZIONE_ID" class="form-control">
+            <option class="form-control" *ngFor="let l of _lavorazioni" [value]="l.LAVORAZIONE_ID">{{l.NAME}}</option>
+          </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Numero Pezzi da Produrre</span>
+        </div>
+        <input type="number" class="form-control" [(ngModel)]="_produzione.TARGET" placeholder="Inserisci il numero di pezzi da produrre">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Priorità [0-100]</span>
+        </div>
+        <input type="number" class="form-control" [(ngModel)]="_produzione.PRIORITA" placeholder="Assegna una priorità">
+      </div>
+
+      <div class="wrapper-opzioni">
+        <button class="btn btn-primary" (click)="aggiungiProduzione()" [disabled]="enableAggiungiProduzione()">Aggiungi
+          Nuova Produzione</button>
+      </div>
+    </div>
   </div>
 
-  <div class="wrapper-opzioni">
-    <button class="btn btn-primary" (click)="aggiungiProduzione()" [disabled]="enableAggiungiProduzione()">Aggiungi Nuova Produzione</button>
-  </div>
 </div>

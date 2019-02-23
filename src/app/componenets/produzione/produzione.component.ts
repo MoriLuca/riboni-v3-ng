@@ -16,6 +16,7 @@ export class ProduzioneComponent implements OnInit {
   private _lavorazioni: Lavorazione[] = [];
   private _produzione: Produzione = new Produzione();
   private _query: string = "";
+  private _showPopUp: boolean = false;
 
   constructor(private _rtmSrvc: GlobalRuntimeConfigService, private _api: ApiService) { }
   
@@ -58,6 +59,9 @@ export class ProduzioneComponent implements OnInit {
     
 
   }
+
+  hidePopUp() { this._showPopUp = false; }
+  showPopUp() { this._showPopUp = true; }
 
   aggiungiProduzione(){
     this._api.putProduzione(this._produzione).subscribe((res)=>{
@@ -141,5 +145,9 @@ export class ProduzioneComponent implements OnInit {
 
   }
 
+  aperturaPopupNuovaLavorazione(){
+    this._produzione.init();
+    this.showPopUp();
+  }
 
 }

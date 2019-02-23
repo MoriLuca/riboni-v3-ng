@@ -5,9 +5,6 @@
     box-shadow: 3px 3px 3px lightgray;
 }
 
-thead{
-    background: rgb(198, 231, 252);
-}
 
 tbody tr:hover{
     transition: all .3s;
