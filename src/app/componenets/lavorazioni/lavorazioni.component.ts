@@ -12,6 +12,7 @@ export class LavorazioniComponent implements OnInit {
 
   private _lavorazioni: Lavorazione[] = [];
   private _lavorazione: Lavorazione = new Lavorazione();
+  private _showPopUp: boolean = false;
   private _query: string = "";
 
   constructor(private _rtmSrvc: GlobalRuntimeConfigService, private _api: ApiService) { }
@@ -29,16 +30,26 @@ export class LavorazioniComponent implements OnInit {
 
   selectLavorazione(l: Lavorazione){
     this._lavorazione.clone(l);
+    this._showPopUp = true;
   }
 
+  hidePopUp() { this._showPopUp = false; }
+  showPopUp() { this._showPopUp = true; }
+
   modificaLavorazione(){
+    
     this._api.postLavorazione(this._lavorazione).subscribe((res)=>{
       if (res == 1){
         alert("OK, Righe aggiorate 1.\nOperazione conculsa con successo.");
         this.getLavorazioni();
+        this.hidePopUp();
       } 
       else alert("Attenzione, riscontrato errore, operazione non eseguita.");
     });
+  }
+
+  reinizializzaLavorazione(){
+    this._lavorazione.init();
   }
 
   eliminaLavorazione(){
@@ -46,6 +57,7 @@ export class LavorazioniComponent implements OnInit {
       if (res == 1){
         alert("OK, Righe eliminate 1.\nOperazione conculsa con successo.");
         this.getLavorazioni();
+        this.hidePopUp();
       }
       else alert("Attenzione, operazione non eseguita.");
     });
@@ -64,15 +76,33 @@ export class LavorazioniComponent implements OnInit {
       if (res == 1){
         alert("OK, Righe aggiunte 1.\nOperazione conculsa con successo.");
         this.getLavorazioni();
+        this.hidePopUp();
       }
       else alert("Attenzione, operazione non eseguita.");
     });
   }
 
-  nomeRicettaEsistente(){
-    
-    return this._lavorazioni.find(n=>n.NAME === this._lavorazione.NAME) || false;
+  consentiCreazione(){
+    let nomeEsistente = this._lavorazioni.find(n=>n.NAME === this._lavorazione.NAME) || false;
+    let minLenghtOk = this._lavorazione.NAME.trim().length > 0 || false;
+    let consenti = (!nomeEsistente && minLenghtOk); 
+
+    return consenti;
     
   }
 
+  consentiModifica(){
+    let idEsistente = this._lavorazioni.find(n=>n.LAVORAZIONE_ID === this._lavorazione.LAVORAZIONE_ID) || false;
+    return idEsistente;
+  }
+
+  consentiEliminazione(){
+    let idEsistente = this._lavorazioni.find(n=>n.LAVORAZIONE_ID === this._lavorazione.LAVORAZIONE_ID) || false;
+    return idEsistente;
+  }
+
+  aperturaPopupNuovaLavorazione(){
+    this._lavorazione.init();
+    this.showPopUp();
+  }
 }

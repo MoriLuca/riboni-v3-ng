@@ -1,8 +1,15 @@
-<div>
-  Ricerca Lavorazione <input type="text" [(ngModel)]="_query"/>
+<div class="ricerca">
+  <div class="btn btn-primary" (click)="aperturaPopupNuovaLavorazione()">Crea Nuova Lavorazione</div>
+  <div class="input-group input-ricerca">
+    <input type="text" class="form-control" [(ngModel)]="_query" placeholder="Nome Lavorazione">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Ricerca Lavorazione</span>
+    </div>
+  </div>
+  
 </div>
 
-<table class="table table-sm table-striped">
+<table class="table table table-striped">
   <thead>
     <tr>
       <th>Nome Lavorazione</th>
@@ -12,27 +19,61 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let p of _lavorazioni" (click)="selectLavorazione(p)">
-      <td *ngIf="p.NAME.includes(_query)">{{p.NAME}}</td>
-      <td *ngIf="p.NAME.includes(_query)">{{p.DATA_CREAZIONE | date:'dd-MM-yyyy HH:mm'}}</td>
-      <td *ngIf="p.NAME.includes(_query)">{{p.VELOCITA_LAMA_SP}}</td>
-      <td *ngIf="p.NAME.includes(_query)">{{p.LUNGHEZZA_TAGLIO}}</td>
+    <tr *ngFor="let p of _lavorazioni" (click)="selectLavorazione(p)" class="pointer">
+      <td *ngIf="p.NAME.toLowerCase().includes(_query.toLowerCase())">{{p.NAME}}</td>
+      <td *ngIf="p.NAME.toLowerCase().includes(_query.toLowerCase())">{{p.DATA_CREAZIONE | date:'dd-MM-yyyy HH:mm'}}</td>
+      <td *ngIf="p.NAME.toLowerCase().includes(_query.toLowerCase())">{{p.VELOCITA_LAMA_SP}}</td>
+      <td *ngIf="p.NAME.toLowerCase().includes(_query.toLowerCase())">{{p.LUNGHEZZA_TAGLIO}}</td>
     </tr>
   </tbody>
 </table>
 
-<div class="dettaglio-lavorazione">
-  <div class="wrapper-lavorazione">
 
-    Nome Lavorazione : <input type="text" [(ngModel)]="_lavorazione.NAME" placeholder="">
-    Velocità della lama [m/min]:  <input type="number" [(ngModel)]="_lavorazione.VELOCITA_LAMA_SP" placeholder="">
-    Lunghezza pezzo [mm]: <input type="number" [(ngModel)]="_lavorazione.LUNGHEZZA_TAGLIO" placeholder="">
 
+<div class="popup" [hidden]="!_showPopUp">
+  <div class="wrapper">
+
+    <h3 class="card-header">Gestione Lavorazioni <span class="fa fa-close pull-right pointer" (click)="hidePopUp()"></span></h3>
+
+    <div class="card-block">
+      <div class="hint">
+        <p class="pl-3">In questa schermata è possibile modificare una Lavoraizone precedentemente creata,<br>
+          oppure inizializzarne una nuova, partendo dai campi vuoti, oppure prendendo come base una esistente.</p>
+      </div>
+      <div class="input-group mb-3">
+
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Nome assegnato alla Lavorazione</span>
+        </div>
+        <input type="text" class="form-control" [(ngModel)]="_lavorazione.NAME" placeholder="Nome Lavorazione">
+      </div>
+
+      <div class="input-group mb-3">
+
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Velocità della lama [m/min]</span>
+        </div>
+        <input type="number" [(ngModel)]="_lavorazione.VELOCITA_LAMA_SP" placeholder="" class="form-control">
+      </div>
+
+      <div class="input-group mb-3">
+
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Lunghezza pezzo [mm]</span>
+        </div>
+        <input type="number" [(ngModel)]="_lavorazione.LUNGHEZZA_TAGLIO" class="form-control">
+      </div>
+
+      <div class="wrapper-opzioni">
+
+        <button class="btn btn-primary" [disabled]="!consentiModifica()" (click)="modificaLavorazione()">Salva
+          Modifiche</button>
+        <button class="btn btn-success" [disabled]="!consentiCreazione()" (click)="creaNuovaLavorazione()">Crea nuova
+          Lavorazione</button>
+        <button class="btn btn-warning" [disabled]="!consentiEliminazione()" (click)="eliminaLavorazione()">Elimina</button>
+        <button class="btn btn-light" (click)="reinizializzaLavorazione()">Reinizializza</button>
+      </div>
+    </div>
   </div>
 
-  <div class="wrapper-opzioni">
-    <button class="btn btn-primary" (click)="modificaLavorazione()">Salva Modifiche</button>
-    <button class="btn btn-success" [disabled]="nomeRicettaEsistente()" (click)="creaNuovaLavorazione()">Crea nuova Lavorazione</button>
-    <button class="btn btn-warning" (click)="eliminaLavorazione()">Elimina</button>
-  </div>
 </div>
