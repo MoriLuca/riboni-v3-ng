@@ -25,6 +25,8 @@ export class LavorazioniComponent implements OnInit {
   getLavorazioni(){
     this._api.getLavorazioni().subscribe((res)=>{
       this._lavorazioni = res;
+      console.log(this._lavorazioni);
+      
     });
   }
 
@@ -83,17 +85,21 @@ export class LavorazioniComponent implements OnInit {
   }
 
   consentiCreazione(){
-    let nomeEsistente = this._lavorazioni.find(n=>n.NAME === this._lavorazione.NAME) || false;
-    let minLenghtOk = this._lavorazione.NAME.trim().length > 0 || false;
-    let consenti = (!nomeEsistente && minLenghtOk); 
-
-    return consenti;
+    let nomeEsistente = (this._lavorazioni.find(n=>n.NAME === this._lavorazione.NAME)) ?true:false;
+    return this.controlloDatiOk() && !nomeEsistente;
     
   }
 
   consentiModifica(){
     let idEsistente = this._lavorazioni.find(n=>n.LAVORAZIONE_ID === this._lavorazione.LAVORAZIONE_ID) || false;
-    return idEsistente;
+    return this.controlloDatiOk() && idEsistente;
+  }
+
+  controlloDatiOk(){
+    let lunghezzaNome = this._lavorazione.NAME.trim().length > 0 && this._lavorazione.NAME.trim().length <= 50;
+    let lunghezzaPezzo = this._lavorazione.LUNGHEZZA_TAGLIO < 600;
+    let velLama = this._lavorazione.VELOCITA_LAMA_SP >= 11 && this._lavorazione.VELOCITA_LAMA_SP <= 110; 
+    return lunghezzaNome && lunghezzaPezzo && velLama;
   }
 
   consentiEliminazione(){

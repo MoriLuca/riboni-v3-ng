@@ -37,8 +37,25 @@
 
     <div class="card-block">
       <div class="hint">
-        <p class="pl-3">In questa schermata è possibile modificare una Lavoraizone precedentemente creata,<br>
-          oppure inizializzarne una nuova, partendo dai campi vuoti, oppure prendendo come base una esistente.</p>
+        <p class="pl-3 pt-2">In questa schermata è possibile modificare una Lavoraizone precedentemente creata,<br>
+          oppure inizializzarne una nuova, partendo dai campi vuoti, o prendendo come base una esistente. </p>
+          <ul>
+            <li>Salva Modifiche : salva le modifiche apportate ad una lavorazione esistente, se tutti i criteri sono soddisfatti.
+            </li>
+            <li>Crea Nuova Lavorazione : crea una nuova lavorazione se tutti i criteri sono soddisfatti.</li>
+            <li>Elimina : Elimina la lavorazione esistente.</li>
+            <li>Reinizializza : Imposta tutti i valori di input al loro stato di default.</li>
+            <li>Campi controllati :
+              <ul [style.color]="(controlloDatiOk())?'':'maroon'">
+                <li>Nome lavorazione non esistente, lungo almeno 1 carattere e massimo 50</li>
+                <li>Velocità lama superiore ad 11 e inferiore a 110 m/min</li>
+                <li>Lunghezza pezzo non superiore a 600 mm</li>
+                {{consentiCreazione ()}}
+                {{controlloDatiOk()}}
+              </ul>
+            </li>
+          </ul>
+          <p class="pl-3 pb-2">Se un pulsante è DISABILITATO, non tutti i criteri sono soddisfatti.</p>
       </div>
       <div class="input-group mb-3">
 
@@ -49,7 +66,6 @@
       </div>
 
       <div class="input-group mb-3">
-
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">Velocità della lama [m/min]</span>
         </div>
@@ -71,7 +87,7 @@
         <button class="btn btn-success" [disabled]="!consentiCreazione()" (click)="creaNuovaLavorazione()">Crea nuova
           Lavorazione</button>
         <button class="btn btn-warning" [disabled]="!consentiEliminazione()" (click)="eliminaLavorazione()">Elimina</button>
-        <button class="btn btn-light" (click)="reinizializzaLavorazione()">Reinizializza</button>
+        <button class="btn btn-dark" (click)="reinizializzaLavorazione()">Reinizializza</button>
       </div>
     </div>
   </div>
