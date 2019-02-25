@@ -1,8 +1,14 @@
-<div>
-  Ricerca Tag <input type="text" [(ngModel)]="_query"/>
-</div>
+<div class="ricerca">
+    <div class="input-group input-ricerca">
+      <input type="text" class="form-control" [(ngModel)]="_query" placeholder="Ricerca Tags">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Ricerca Tag OPC</span>
+      </div>
+    </div>
+  
+  </div>
 
-<table class="table table-sm table-striped">
+<table class="table table table-striped">
   <thead>
     <tr>
       <th scope="col">Nome Tag</th>
@@ -11,8 +17,8 @@
   </thead>
   <tbody>
     <tr *ngFor="let obj of _opcuaBrowserResults.browseResults">
-      <td *ngIf="obj.browseName.name.includes(_query)">{{obj.browseName.name}}</td>
-      <td *ngIf="obj.browseName.name.includes(_query)">{{obj.nodeId}}</td>
+      <td *ngIf="obj.browseName.name.toLowerCase().includes(_query.toLowerCase())">{{obj.browseName.name}}</td>
+      <td *ngIf="obj.browseName.name.toLowerCase().includes(_query.toLowerCase())">{{obj.nodeId}}</td>
     </tr>
   </tbody>
 </table>

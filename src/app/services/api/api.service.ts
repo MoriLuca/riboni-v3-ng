@@ -129,6 +129,15 @@ export class ApiService {
   }
   //#endregion
 
+  //#region alarms
+  getAlarms(){
+    return this.http.get<ITag[]>(this.endpoint + 'alarms', this.httpOptions);
+  }
+
+  getAlarmsHistory(rows: number){
+    return this.http.get(this.endpoint + 'storiaAllarmi?rows='+rows , this.httpOptions)
+  }
+  //#endregion
 
   // // post and get 
   // addNewPerson (user:UserForDotnet) {

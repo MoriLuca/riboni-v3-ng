@@ -1,1 +1,12 @@
-<app-tags-groups [tag-group]="'alarms'"></app-tags-groups>
+<table class="table table table-striped">
+    <thead>
+      <tr>
+        <th scope="col" style="text-align: center;">Nome Allarme</th>
+      </tr>
+    </thead>
+    <tbody class="allarmi">
+      <tr *ngFor="let al of _alarms">
+        <td [style.background]="(al.value)?'rgba(255,0,0,0.1)':'rgba(0,255,0,0.1)'">{{al.nome}}</td>
+      </tr>
+    </tbody>
+  </table>

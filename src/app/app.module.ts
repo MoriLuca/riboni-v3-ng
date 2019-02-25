@@ -25,6 +25,7 @@ import { LavorazioniComponent } from './componenets/lavorazioni/lavorazioni.comp
 import { ProduzioneComponent } from './componenets/produzione/produzione.component';
 import { ProduzioneConclusaComponent } from './componenets/produzione-conclusa/produzione-conclusa.component';
 import { CustomTableComponent } from './luca-mori/table/custom-table/custom-table.component';
+import { AlarmsHistoryComponent } from './componenets/monitor/alarms-history/alarms-history.component';
 
 
 
@@ -48,7 +49,8 @@ import { CustomTableComponent } from './luca-mori/table/custom-table/custom-tabl
     LavorazioniComponent,
     ProduzioneComponent,
     ProduzioneConclusaComponent,
-    CustomTableComponent
+    CustomTableComponent,
+    AlarmsHistoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,6 +69,7 @@ import { CustomTableComponent } from './luca-mori/table/custom-table/custom-tabl
       {path:"dettaglio",component: DettaglioComponent},
       {path:"utility",component: UtilityTagsComponent},
       {path:"alarms",component: AlarmsComponent},
+      {path:"alarmsHistory",component: AlarmsHistoryComponent},
       //monitor fine
       {path:"opcua",component: OpcuaComponent},
       

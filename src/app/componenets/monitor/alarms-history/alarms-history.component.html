@@ -1,0 +1,23 @@
+<div class="menu">
+    <input [(ngModel)]="rowRequestCount" class="row-input" type="text">
+    <button (click)="getUltimiAllarmi()">Richiedi Lista Aggiornata</button>
+</div>
+
+<div class="table-container">
+    <div class="table-responsive table-border">
+        <table class="table table-striped ">
+            <thead>
+              <tr>
+                <th>Allarme</th>
+                <th>Ora Inizio Evento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let t of obj; index as i;">{{taglio}}
+                <td >{{t.TESTO}}</td>
+                <td >{{t.T_STAMP | date: 'dd/MM/yy - HH:mm:ss'}}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+</div>

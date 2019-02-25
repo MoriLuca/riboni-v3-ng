@@ -9,7 +9,10 @@
 thead{
     background: rgb(198, 231, 252);
     color: cornflowerblue;
+    border-bottom: 5px solid cornflowerblue;
 }
+
+
 
 /*
 .btn-outline-dark {

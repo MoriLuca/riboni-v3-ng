@@ -24,6 +24,7 @@ export class ProduzioneComponent implements OnInit {
     this.getProduzioni();
     this.getLavorazioni();
     this._produzione.init();
+    setInterval(()=>{this.getProduzioni()}, 2000);
   }
 
   getProduzioni(){
