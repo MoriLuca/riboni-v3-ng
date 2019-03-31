@@ -7,3 +7,10 @@ tbody tr:hover{
     color: white;
 }
 
+table {
+    width: 98%;
+    margin: auto;
+    border: 1px solid lightgray;
+    box-shadow: 3px 3px 3px lightgray;
+    text-align: center;
+}

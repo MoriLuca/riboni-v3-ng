@@ -1,19 +1,21 @@
+
 <div class="menu">
     <input [(ngModel)]="rowRequestCount" class="row-input" type="text">
     <button (click)="getUltimiTagli()">Richiedi Lista Aggiornata</button>
 </div>
 <div class="table-container">
     <div class="table-responsive table-border">
-        <table class="table table-striped table-sm ">
+        <table class="table table-striped">
             <thead>
               <tr>
-                <th *ngFor="let h of header">{{h}}</th>
+                <th style="text-align:center;" *ngFor="let h of header">{{h}}</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let t of tagli; index as i;">{{taglio}}
+              <tr *ngFor="let t of tagli; index as i;">
                 <td *ngFor="let c of header">
-                  {{t[c]}}
+                  <span *ngIf="(c == 'TSTAMP')">{{t[c] | date: 'dd/MM/yy - HH:mm'}}</span>
+                  <span *ngIf="(c != 'TSTAMP')">{{t[c]}}</span>
                 </td>
               </tr>
             </tbody>

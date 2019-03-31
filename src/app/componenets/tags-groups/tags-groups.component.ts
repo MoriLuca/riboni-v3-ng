@@ -21,14 +21,18 @@ export class TagsGroupsComponent implements OnInit {
 
 
   ngOnInit() {
+    this.pollingRate = this.pollingRate || 3000;
     console.log(`input -> ${this.tagGroup} | polling rate -> ${this.pollingRate}`);
     this.poll();
-    setInterval(()=>{this.poll()}, this.pollingRate || 3000);
+    setInterval(()=>{this.poll()}, this.pollingRate);
   }
 
   poll(){
+    console.log("il nome delle tag passato al componente è ->" + this.tagGroup);
     this._api.getTagsByGroup(this.tagGroup).subscribe((res)=>{
       this._plc.normalTags = res;
+      console.log(this._plc.normalTags);
+      
     });
   }
 

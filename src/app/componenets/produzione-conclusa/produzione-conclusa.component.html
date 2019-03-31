@@ -1,14 +1,15 @@
-<div>
+<div class="mt-2">
   Ricerca Produzione per CODICE <input type="text" [(ngModel)]="_query"/>
 </div>
 
-<table class="table table-sm table-striped">
+<table class="table table-striped mt-2">
   <thead>
     <tr>
       <th scope="col">Codice Produzione</th>
       <th scope="col">Nome Lavorazione</th>
       <th scope="col">Target</th>
       <th scope="col">Prodotti</th>
+      <th scope="col">Data Inizio</th>
       <th scope="col">Data Consuntivazione</th>
     </tr>
   </thead>
@@ -18,7 +19,8 @@
       <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.NOME_LAVORAZIONE }}</td>
       <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.TARGET}}</td>
       <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.PRODOTTI}}</td>
-      <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.DATA_CONSUNTIVAZIONE}}</td>
+      <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.DATA_INIZIO | date:'dd/MM/yy - hh:mm:ss'}}</td>
+      <td *ngIf="p.CODICE_PRODUZIONE.includes(_query)">{{p.DATA_CONSUNTIVAZIONE | date:'dd/MM/yy - hh:mm:ss'}}</td>
     </tr>
   </tbody>
 </table>

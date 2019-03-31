@@ -13,7 +13,8 @@ import { ProduzioneConclusa } from 'src/app/models/produzione/produzioneConclusa
 })
 export class ApiService {
 
-  private backendUrl = "http://localhost:1880/";
+  // private backendUrl = "http://localhost:1880/";
+  private backendUrl = "http://192.168.0.11:1880/";
   
   private endpoint = this.backendUrl + 'api/';
   private httpOptions = {
@@ -37,6 +38,7 @@ export class ApiService {
   
 
   getTagsByGroup (groupName: string) {
+    console.log("Richiesta tags by group -> "+groupName);
     return this.http.get<ITag[]>(this.endpoint+'tags/readTagsGroup?tagname='+groupName,this.httpOptions);
   }
 
@@ -139,17 +141,14 @@ export class ApiService {
   }
   //#endregion
 
-  // // post and get 
-  // addNewPerson (user:UserForDotnet) {
-  //   let body =  JSON.stringify(user);
-  //   return this.http.post<number>(this.endpoint + 'registration', body, this.httpOptions);
-  // }
+  //#region Utility
+  scritturaAllowed(){
+    return this.http.get<{ready: boolean}>(this.endpoint + 'macchinaProntaPerScrittura', this.httpOptions);
+  }
+  //#endregion
 
-  // login (credenziali:InputCredenzialiLogin) {
-  //   let body =  JSON.stringify(credenziali);
-  //   return this.http.post<User>(this.endpoint + 'login', body, this.httpOptions);
-  // }
 
+  
 }
 
 

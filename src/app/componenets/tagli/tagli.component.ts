@@ -52,6 +52,10 @@ export class TagliComponent implements OnInit {
     );
   }
 
+  typsOf(obj){
+    return typeof(obj);
+  }
+
 }
 
 class Testi {

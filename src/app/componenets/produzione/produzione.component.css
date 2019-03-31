@@ -6,6 +6,7 @@
     box-shadow: 3px 3px 3px lightgray;
     text-align: center;
 }
+
 .produzione tr:hover{
     background: rgb(165, 226, 165);
 }
